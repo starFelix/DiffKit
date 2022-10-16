@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'DiffKit_Example' do
+  pod 'DiffKit', :path => '../'
+
+  target 'DiffKit_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
