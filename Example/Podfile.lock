@@ -1,5 +1,5 @@
 PODS:
-  - DiffKit (0.1.0)
+  - DiffKit (0.0.1)
 
 DEPENDENCIES:
   - DiffKit (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  DiffKit: 739a5c2fef83613f2dbde6121ede1253278b78d8
+  DiffKit: e619b187de12eb41e48649174abdf5bbbb480d84
 
 PODFILE CHECKSUM: 56911b3c44159392fc35376cc3ea354a178bee93
 
