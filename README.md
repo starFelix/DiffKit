@@ -40,7 +40,6 @@ The type of the element that to take diffs must be conform to the `Differentiabl
 And the `differenceIdentifier`'s type **must** be `Hashable`.
 
 ~~~objective-c
-```
 @interface User: NSObject <Differentiable>
 
 @property (nonatomic, copy) NSString *userId;
@@ -62,7 +61,6 @@ And the `differenceIdentifier`'s type **must** be `Hashable`.
 }
 
 @end
-```
 ~~~
 
 In the case of definition above, `id` uniquely identifies the element and get to know the user updated by comparing equality of `name` of the elements in source and target.
