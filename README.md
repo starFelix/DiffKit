@@ -63,7 +63,7 @@ And the `differenceIdentifier`'s type **must** be `Hashable`.
 @end
 ~~~
 
-In the case of definition above, `id` uniquely identifies the element and get to know the user updated by comparing equality of `name` of the elements in source and target.
+In the case of definition above, `userId` uniquely identifies the element and get to know the user updated by comparing equality of `age` of the elements in source and target.
 
 Calculate the diffs by creating `StagedChangeset` from two collections of elements conforming to `Differentiable`:
 
@@ -166,7 +166,6 @@ pod 'DiffKit', :git => 'https://github.com/starFelix/DiffKit'
 ## Contribution
 
 Pull requests, bug reports and feature requests are welcome 🚀
-Please see the [CONTRIBUTING](https://github.com/ra1028/DifferenceKit/blob/master/CONTRIBUTING.md) file for learn how to contribute to DifferenceKit. 
 
 ---
 
