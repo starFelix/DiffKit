@@ -371,6 +371,7 @@ typedef enum : NSUInteger {
         for (NSInteger targetElementIndex = 0; targetElementIndex < [targetElements count]; targetElementIndex++) {
             if (untrackedSourceIndexNum != nil) {
                 NSInteger untrackedSourceIndex = [untrackedSourceIndexNum integerValue];
+                untrackedSourceIndexNum = nil;
                 for (NSInteger traceIndex = untrackedSourceIndex; traceIndex < [sourceElementTraces[sourceSectionIndex] count]; traceIndex++) {
                     Trace *trace = sourceElementTraces[sourceSectionIndex][traceIndex];
                     if (![trace isTracked]) {
@@ -485,8 +486,7 @@ DiffResult* diff(NSArray<Differentiable> *source,
     
     NSMutableDictionary<NSNumber *, Occurrence *> *sourceOccurrencesTable = [[NSMutableDictionary alloc] initWithCapacity:source.count];
     for (NSInteger sourceIndex = 0; sourceIndex < [sourceIdentifiers count]; sourceIndex++) {
-        id sourceIdentifier = sourceIdentifiers[sourceIndex];
-        NSNumber *key = @((uintptr_t)sourceIdentifier);
+        id key = sourceIdentifiers[sourceIndex];
         Occurrence *occurrence = sourceOccurrencesTable[key];
         if (occurrence) {
             switch (occurrence.type) {
@@ -508,8 +508,7 @@ DiffResult* diff(NSArray<Differentiable> *source,
     }
     
     for (NSInteger targetIndex = 0; targetIndex < [target count]; targetIndex++) {
-        id targetIdentifier = [target[targetIndex] differenceIdentifier];
-        NSNumber *key = @((uintptr_t)targetIdentifier);
+        id key = [target[targetIndex] differenceIdentifier];
         Occurrence *occurrence = sourceOccurrencesTable[key];
         if (occurrence) {
             switch (occurrence.type) {
@@ -582,8 +581,7 @@ DiffResult* diff(NSArray<Differentiable> *source,
                 [updated addObject:mapIndex(useTargetIndexForUpdated ? targetIndex : sourceIndex)];
             }
             
-            NSInteger untrackedSourceIndexValue = [untrackedSourceIndex integerValue];
-            if (untrackedSourceIndex == nil || sourceIndex != untrackedSourceIndexValue) {
+            if (![@(sourceIndex) isEqual:untrackedSourceIndex]) {
                 NSInteger deleteOffset = sourceTraces[sourceIndex].deleteOffset;
                 ChangeSetIdPair *pair = [[ChangeSetIdPair alloc] init];
                 pair.source = mapIndex(sourceIndex - deleteOffset);
